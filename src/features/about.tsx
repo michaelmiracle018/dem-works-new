@@ -6,7 +6,7 @@ import workshopImg from '~/assets/community-workshop.jpg';
 import team1 from '~/assets/team/Dora-Wepia.jpeg';
 import team2 from '~/assets/team/Desmond.jpeg';
 import team3 from '~/assets/team/Patience-Mercy-Achambeh.jpeg';
-import team4 from '~/assets/team/dorithy-morisum-salifu.jpeg';
+import team4 from '~/assets/team/Dorithy-Morisum-Salifu.jpeg';
 import team5 from '~/assets/team/Wekuri-Solonic.jpeg';
 import team6 from '~/assets/team/Seth.jpeg';
 import team7 from '~/assets/team/Mardiyah-Bint-Umar.jpeg';
