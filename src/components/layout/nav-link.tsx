@@ -1,9 +1,9 @@
-import { createLink, Link, LinkProps } from "@tanstack/react-router";
-import { forwardRef } from "react";
-import { cn } from "~/lib/utils";
+import { Link, LinkProps } from '@tanstack/react-router';
+import { forwardRef } from 'react';
+import { cn } from '~/lib/utils';
 
 // 1. Define the extra props you want for compatibility
-interface NavLinkCompatProps extends Omit<LinkProps, "className" | "style"> {
+interface NavLinkCompatProps extends Omit<LinkProps, 'className' | 'style'> {
   className?: string;
   activeClassName?: string;
   pendingClassName?: string;
@@ -16,18 +16,20 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
       <Link
         ref={ref}
         // TanStack Link uses a callback for className to handle states
-        className={((state: any) =>
-          cn(
-            className,
-            state.isActive && activeClassName,
-            state.isPending && pendingClassName
-          )) as unknown as string}
+        className={
+          ((state: any) =>
+            cn(
+              className,
+              state.isActive && activeClassName,
+              state.isPending && pendingClassName
+            )) as unknown as string
+        }
         {...props}
       />
     );
   }
 );
 
-NavLink.displayName = "NavLink";
+NavLink.displayName = 'NavLink';
 
 export { NavLink };

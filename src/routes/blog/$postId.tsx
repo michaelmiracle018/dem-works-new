@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 import BlogPost from '~/features/blog-post';
-import { seo } from '~/utils/seo';
 
 export const Route = createFileRoute('/blog/$postId')({
   //  head: () => ({

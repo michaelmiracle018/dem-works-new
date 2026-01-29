@@ -4,11 +4,10 @@ import { ArrowLeft, Calendar, User, Clock, Tag, ArrowRight } from 'lucide-react'
 import { Button } from '~/components/ui/button';
 import { getBlogPostBySlug, getRelatedPosts } from '~/lib/blog-data';
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
-import { FloatingShapes, GradientText } from '~/components/ui/floating-shapes';
+import { FloatingShapes } from '~/components/ui/floating-shapes';
 
 const BlogPost = () => {
   const { postId } = useParams({ from: '/blog/$postId' });
-  console.log(postId);
 
   const post = postId ? getBlogPostBySlug(postId) : undefined;
 
@@ -90,7 +89,8 @@ const BlogPost = () => {
                     <Tag className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                     <span className="font-medium text-foreground">Category:</span>
                     <Link
-                      to={`/blog?category=${post.category}`}
+                      to="/blog"
+                      search={{ category: post.category }}
                       className="text-primary hover:underline link-underline"
                     >
                       {post.category}
@@ -115,7 +115,8 @@ const BlogPost = () => {
               {relatedPosts.map((relatedPost, index) => (
                 <AnimatedSection key={relatedPost.id} delay={index * 100}>
                   <Link
-                    to={`/blog/${relatedPost.slug}`}
+                    to="/blog/$postId"
+                    params={{ postId: relatedPost.slug }}
                     className="group bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 block card-hover"
                   >
                     <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full">

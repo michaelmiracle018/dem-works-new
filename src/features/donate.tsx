@@ -1,5 +1,5 @@
 import { Layout } from '~/components/layout/layout';
-import { Heart, CreditCard, Repeat, Gift, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { Heart, CreditCard, Repeat, Gift, CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { useState } from 'react';
 import { AnimatedSection } from '~/hooks/use-scroll-animation';

@@ -28,7 +28,7 @@
 
 ```bash
 # Clone the starter template (replace with your repo)
-npx gitpick git@github.com:michaelmiracle018/init-launch.git my-app
+npx gitpick git@github.com:michaelmiracle018/dem-works-new.git my-app
 cd my-app
 ```
 
