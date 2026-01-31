@@ -2,7 +2,8 @@ import { Layout } from '~/components/layout/layout';
 import { Users, Target, Eye, Heart, Award, Globe, Linkedin, Twitter } from 'lucide-react';
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
 import { FloatingShapes, GradientText } from '~/components/ui/floating-shapes';
-import workshopImg from '~/assets/community-workshop.jpg';
+import campaign1 from '~/assets/campaign-1.jpg';
+import demworksLogoFull from '~/assets/demworks-logo-full.png';
 import team1 from '~/assets/team/Dora-Wepia.jpeg';
 import team2 from '~/assets/team/Desmond.jpeg';
 import team3 from '~/assets/team/Patience-Mercy-Achambeh.jpeg';
@@ -130,11 +131,15 @@ const About = () => {
             <AnimatedSection animation="fade-right">
               <div className="relative group">
                 <img
-                  src={workshopImg}
-                  alt="Community workshop"
+                  src={campaign1}
+                  alt="Development, Empowerment and Mobilization Works"
                   className="rounded-2xl shadow-elevated w-full group-hover:scale-[1.02] transition-transform duration-500"
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 hero-gradient rounded-2xl -z-10 opacity-30 animate-pulse-slow" />
+                {/* Logo badge */}
+                <div className="absolute -bottom-4 -left-4 bg-white p-2 rounded-xl shadow-lg">
+                  <img src={demworksLogoFull} alt="Demworks" className="h-12 w-auto" />
+                </div>
               </div>
             </AnimatedSection>
 
@@ -163,9 +168,9 @@ const About = () => {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-3">Our Vision</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      To drive inclusive development, empower underrepresented groups, and mobilize
-                      communities toward sustainable progress through education, collaboration, and
-                      innovation.
+                      A continent where every individual — regardless of background — is empowered,
+                      mobilized, and equipped to shape their future and contribute meaningfully to
+                      national development.
                     </p>
                   </div>
                 </div>
@@ -220,7 +225,7 @@ const About = () => {
             {team.map((member, index) => (
               <AnimatedSection key={index} delay={index * 100} animation="scale">
                 <div className="text-center group">
-                  <div className="relative w-60 h-60 rounded-full mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-105">
+                  <div className="relative w-40 h-40 rounded-full mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-105">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -263,7 +268,7 @@ const About = () => {
               Our Journey
             </span>
             <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mt-3">
-              15 Years of Impact
+              5 Years of Impact
             </h2>
           </AnimatedSection>
 

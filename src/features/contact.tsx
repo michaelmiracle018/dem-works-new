@@ -263,27 +263,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      {/* FAQ Teaser */}
-      <section className="py-20 bg-muted/30 relative overflow-hidden section-divider">
-        <FloatingShapes variant="section" />
-        <div className="container mx-auto px-4 text-center relative">
-          <AnimatedSection>
-            <h2 className="text-3xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Find answers to common questions about our programs, donations, and how to get
-              involved.
-            </p>
-            <Button
-              variant="outline"
-              className="gap-2 group hover:bg-primary hover:text-primary-foreground transition-all"
-            >
-              View FAQs{' '}
-              <MessageSquare className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
     </Layout>
   );
 };

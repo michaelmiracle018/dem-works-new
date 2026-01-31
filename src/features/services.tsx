@@ -1,12 +1,32 @@
+import { useState } from 'react';
 import { Layout } from '~/components/layout/layout';
 import { Shield, Heart, Users, GraduationCap, Building, Megaphone, ArrowRight } from 'lucide-react';
 import { Button } from '~/components/ui/button';
-import { Link } from '@tanstack/react-router';
+
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
 import { FloatingShapes, GradientText, GlowCard } from '~/components/ui/floating-shapes';
+import { ImageLightbox } from '~/components/ui/image-lightbox';
 import cyberImg from '~/assets/cyber-security.jpg';
 import drugImg from '~/assets/drug-awareness.jpg';
 import workshopImg from '~/assets/community-workshop.jpg';
+
+// Import drug awareness campaign images
+import campaign1 from '~/assets/campaign-1.jpg';
+import campaign2 from '~/assets/campaign-2.jpg';
+import campaign3 from '~/assets/campaign-3.jpg';
+import campaign4 from '~/assets/campaign-4.jpg';
+import campaign5 from '~/assets/campaign-5.jpg';
+import campaign6 from '~/assets/campaign-6.jpg';
+import { Link } from '@tanstack/react-router';
+
+const campaignImages = [
+  { src: campaign1, title: 'You Deserve a Clear Mind & a Bright Future' },
+  { src: campaign2, title: 'High on Life, Not on Drugs!' },
+  { src: campaign3, title: "Be Smart. Don't Start." },
+  { src: campaign4, title: 'Addiction is a Prison. Break Free.' },
+  { src: campaign5, title: "Your Life is Priceless. Don't Trade it for a Pill." },
+  { src: campaign6, title: 'No Dope. Just Hope.' },
+];
 
 const services = [
   {
@@ -77,6 +97,14 @@ const additionalServices = [
 ];
 
 const Services = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -198,30 +226,67 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 coral-gradient relative overflow-hidden">
-        <FloatingShapes variant="hero" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimatedSection>
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-foreground mb-6">
-              Need a Customized Program?
+      {/* Campaign Gallery */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-secondary font-semibold tracking-wide uppercase text-sm">
+              #SayNoToDrugAbuse
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">
+              Campaign Gallery
             </h2>
-            <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-              We work with organizations to create tailored programs that meet their specific needs.
-              Contact us to discuss how we can help your community.
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Our drug awareness campaign materials — click to view fullscreen
             </p>
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 btn-glow group"
-              >
-                Get in Touch{' '}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
           </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {campaignImages.map((item, index) => (
+              <AnimatedSection key={index} delay={index * 100} animation="scale">
+                <div
+                  className="group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 cursor-pointer"
+                  onClick={() => openLightbox(index)}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-accent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <p className="text-primary-foreground font-bold text-lg">{item.title}</p>
+                  </div>
+                  {/* Zoom icon */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Image Lightbox */}
+      <ImageLightbox
+        images={campaignImages}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </Layout>
   );
 };

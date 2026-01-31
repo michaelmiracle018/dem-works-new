@@ -5,7 +5,7 @@ import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 import { useLocation } from '@tanstack/react-router';
 import { Link } from '@tanstack/react-router';
-import logo from '~/assets/dem_works-logo (1).png';
+import demworksLogo from '~/assets/demworks-logo.png';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -14,7 +14,6 @@ const navLinks = [
   { name: 'Blog', href: '/blog' },
   { name: 'Events', href: '/events' },
   { name: 'Sponsors', href: '/sponsors' },
-  { name: 'Contact', href: '/contact' },
 ];
 
 export function Navbar() {
@@ -39,10 +38,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        {/* <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl hero-gradient flex items-center justify-center transition-transform group-hover:scale-105">
-            <span className="text-primary-foreground font-serif font-bold text-xl">D</span>
-          </div>
+        <Link to="/" className="flex items-center gap-2 group">
+          <img
+            src={demworksLogo}
+            alt="Demworks Logo"
+            className="h-10 w-auto transition-transform group-hover:scale-105"
+          />
           <span
             className={cn(
               'font-serif text-xl font-bold transition-colors',
@@ -51,9 +52,7 @@ export function Navbar() {
           >
             Demworks
           </span>
-        </Link> */}
-
-        <img src={logo} alt="Demworks Logo" className="w-20 h-20 object-contain" />
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
@@ -77,10 +76,9 @@ export function Navbar() {
 
         {/* Donate Button */}
         <div className="hidden lg:flex items-center gap-3">
-          <Link to="/donate">
+          <Link to="/contact">
             <Button className="coral-gradient border-0 text-secondary-foreground gap-2 hover:opacity-90 transition-opacity shadow-soft">
-              <Heart className="w-4 h-4" />
-              Donate Now
+              Contact Us
             </Button>
           </Link>
         </div>

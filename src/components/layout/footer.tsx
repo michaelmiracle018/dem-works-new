@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import demworksLogoFull from '~/assets/demworks-logo-full.png';
 
 const quickLinks = [
   { name: 'About Us', href: '/about' },
@@ -34,10 +35,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-serif font-bold text-2xl">D</span>
-              </div>
-              <span className="font-serif text-2xl font-bold">Demworks</span>
+              <img
+                src={demworksLogoFull}
+                alt="Demworks - Empowering minds, mobilizing change"
+                className="h-16 w-auto"
+              />
             </Link>
             <p className="text-primary-foreground/70 leading-relaxed">
               Empowering communities through drug abuse awareness and cybersecurity education.

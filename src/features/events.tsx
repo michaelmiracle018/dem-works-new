@@ -1,9 +1,10 @@
 import { Layout } from '~/components/layout/layout';
 import { Calendar, MapPin, Clock, Users, ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from '~/components/ui/button';
-import { Link } from '@tanstack/react-router';
+
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
 import { FloatingShapes, GradientText, GlowCard } from '~/components/ui/floating-shapes';
+import { Link } from '@tanstack/react-router';
 
 const upcomingEvents = [
   {
@@ -192,7 +193,7 @@ const Events = () => {
             {upcomingEvents.map((event, index) => (
               <AnimatedSection key={event.id} delay={index * 75}>
                 <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-500 flex flex-col md:flex-row md:items-center gap-6 group card-hover">
-                  <div className="w-16 h-16 rounded-xl hero-gradient flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-xl hero-gradient flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <Calendar className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
@@ -218,7 +219,7 @@ const Events = () => {
                   </div>
                   <Button
                     variant="outline"
-                    className="flex-shrink-0 gap-2 group/btn hover:bg-primary hover:text-primary-foreground transition-all"
+                    className="shrink-0 gap-2 group/btn hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     Learn More{' '}
                     <ExternalLink className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />

@@ -92,9 +92,19 @@ const Blog = () => {
                 <AnimatedSection key={post.id} delay={index * 100}>
                   <GlowCard>
                     <article className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500">
-                      <div className="h-48 hero-gradient flex items-center justify-center relative overflow-hidden">
-                        <Tag className="w-16 h-16 text-primary-foreground/30 group-hover:scale-110 transition-transform duration-500" />
-                        <div className="absolute inset-0 bg-linear-to-t from-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="h-56 relative overflow-hidden">
+                        {post.image ? (
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        ) : (
+                          <div className="w-full h-full hero-gradient flex items-center justify-center">
+                            <Tag className="w-16 h-16 text-primary-foreground/30 group-hover:scale-110 transition-transform duration-500" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-linear-to-t from-accent/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                       <div className="p-8">
                         <div className="flex items-center gap-3 mb-4">
@@ -156,45 +166,42 @@ const Blog = () => {
                 <Link
                   to="/blog/$postId"
                   params={{ postId: post.slug }}
-                  className="group bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 block card-hover"
+                  className="group bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 block card-hover"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full">
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{post.excerpt}</p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <User className="w-4 h-4" />
-                    <span>{post.author}</span>
-                    <span className="mx-2">•</span>
-                    <Calendar className="w-4 h-4" />
-                    <span>{post.date}</span>
+                  {post.image && (
+                    <div className="h-40 overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full">
+                        {post.category}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <User className="w-4 h-4" />
+                      <span>{post.author}</span>
+                      <span className="mx-2">•</span>
+                      <Calendar className="w-4 h-4" />
+                      <span>{post.date}</span>
+                    </div>
                   </div>
                 </Link>
               </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Stay Updated</h2>
-            <p className="text-muted-foreground mb-8">
-              Subscribe to our newsletter for the latest articles, events, and resources.
-            </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <Input placeholder="Enter your email" type="email" className="flex-1" />
-              <Button className="hero-gradient text-primary-foreground btn-glow">Subscribe</Button>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
     </Layout>

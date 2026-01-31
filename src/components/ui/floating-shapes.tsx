@@ -10,10 +10,10 @@ export function FloatingShapes({ className, variant = 'hero' }: FloatingShapesPr
     return (
       <div className={cn('absolute inset-0 overflow-hidden pointer-events-none', className)}>
         {/* Large gradient orb */}
-        <div className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/20 to-secondary/10 blur-3xl animate-float-slow" />
+        <div className="absolute -top-1/4 -right-1/4 w-150 h-150 rounded-full bg-linear-to-br from-primary/20 to-secondary/10 blur-3xl animate-float-slow" />
 
         {/* Smaller accent orb */}
-        <div className="absolute -bottom-1/4 -left-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-secondary/15 to-primary/5 blur-3xl animate-float-delayed" />
+        <div className="absolute -bottom-1/4 -left-1/4 w-100 h-100 rounded-full bg-linear-to-tr from-secondary/15 to-primary/5 blur-3xl animate-float-delayed" />
 
         {/* Geometric shapes */}
         <div className="absolute top-1/4 right-1/4 w-20 h-20 border-2 border-primary-foreground/10 rounded-2xl rotate-12 animate-spin-slow" />
@@ -21,7 +21,7 @@ export function FloatingShapes({ className, variant = 'hero' }: FloatingShapesPr
         <div className="absolute top-1/2 right-1/3 w-12 h-12 border border-primary-foreground/10 rotate-45 animate-float" />
 
         {/* Dots pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_transparent_50%,_hsl(var(--primary-foreground)/0.02)_50%,_hsl(var(--primary-foreground)/0.02)_100%)] bg-[length:60px_60px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_50%,hsl(var(--primary-foreground)/0.02)_50%,hsl(var(--primary-foreground)/0.02)_100%)] bg-size-[60px_60px]" />
       </div>
     );
   }
@@ -70,7 +70,7 @@ interface GlowCardProps {
 export function GlowCard({ children, className }: GlowCardProps) {
   return (
     <div className={cn('relative group', className)}>
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-0 group-hover:opacity-30 blur transition-all duration-500" />
+      <div className="absolute -inset-0.5 bg-linear-to-r from-primary to-secondary rounded-2xl opacity-0 group-hover:opacity-30 blur transition-all duration-500" />
       <div className="relative bg-card rounded-2xl">{children}</div>
     </div>
   );

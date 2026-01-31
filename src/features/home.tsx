@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+
 import {
   ArrowRight,
   Shield,
@@ -14,13 +15,37 @@ import {
 } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { Layout } from '~/components/layout/layout';
-import { AnimatedSection } from '~/hooks/use-scroll-animation';
+import { AnimatedSection, StaggeredContainer } from '~/hooks/use-scroll-animation';
 import { FloatingShapes, GlowCard, GradientText } from '~/components/ui/floating-shapes';
+import { ImageLightbox } from '~/components/ui/image-lightbox';
 import heroBg from '~/assets/hero-bg.jpg';
 import workshopImg from '~/assets/community-workshop.jpg';
 import cyberImg from '~/assets/cyber-security.jpg';
 import drugImg from '~/assets/drug-awareness.jpg';
+
+// Import drug awareness campaign images
+import campaign1 from '~/assets/campaign-1.jpg';
+import campaign2 from '~/assets/campaign-2.jpg';
+import campaign3 from '~/assets/campaign-3.jpg';
+import campaign4 from '~/assets/campaign-4.jpg';
+import campaign5 from '~/assets/campaign-5.jpg';
+import campaign6 from '~/assets/campaign-6.jpg';
+import campaign7 from '~/assets/campaign-7.jpg';
+import campaign8 from '~/assets/campaign-8.jpg';
+import campaign9 from '~/assets/campaign-9.jpg';
 import { Link } from '@tanstack/react-router';
+
+const campaignImages = [
+  { src: campaign1, title: 'You Deserve a Clear Mind & a Bright Future' },
+  { src: campaign2, title: 'High on Life, Not on Drugs!' },
+  { src: campaign3, title: "Be Smart. Don't Start." },
+  { src: campaign4, title: 'Addiction is a Prison. Break Free.' },
+  { src: campaign5, title: "Your Life is Priceless. Don't Trade it for a Pill." },
+  { src: campaign6, title: 'No Dope. Just Hope.' },
+  { src: campaign7, title: 'Your Future Matters. Say No to Drugs!' },
+  { src: campaign8, title: 'You Are Stronger Than Any Substance.' },
+  { src: campaign9, title: 'Every Day Drug-Free is a Win' },
+];
 
 function AnimatedCounter({
   end,
@@ -74,13 +99,6 @@ function AnimatedCounter({
     </div>
   );
 }
-
-const stats = [
-  { value: 50000, suffix: '+', label: 'Lives Impacted', icon: Users },
-  { value: 200, suffix: '+', label: 'Workshops Conducted', icon: BookOpen },
-  { value: 15, suffix: '', label: 'Years of Service', icon: Calendar },
-  { value: 45, suffix: '+', label: 'Partner Organizations', icon: Globe },
-];
 
 const services = [
   {
@@ -140,15 +158,23 @@ const upcomingEvents = [
   },
 ];
 
-const Index = () => {
+const Home = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={heroBg} alt="Community awareness" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/95 via-accent/85 to-accent/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-accent/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-accent/95 via-accent/85 to-accent/50" />
+          <div className="absolute inset-0 bg-linear-to-t from-accent/60 via-transparent to-transparent" />
         </div>
 
         {/* Floating shapes */}
@@ -164,10 +190,14 @@ const Index = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-              <span className="block animate-fade-up">Empowering Lives Through</span>
+              <span className="block animate-fade-up">
+                <GradientText>Development</GradientText>,
+              </span>
+              <span className="block animate-fade-up delay-100">
+                <span className="text-secondary">Empowerment</span> &
+              </span>
               <span className="block animate-fade-up delay-200">
-                <GradientText>Awareness</GradientText> &{' '}
-                <span className="text-secondary">Education</span>
+                Mobilization <GradientText>Works</GradientText>
               </span>
             </h1>
 
@@ -220,24 +250,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-card relative overflow-hidden">
-        <FloatingShapes variant="section" />
-        <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <AnimatedSection key={index} delay={index * 100} className="text-center group">
-                <div className="w-16 h-16 rounded-2xl hero-gradient mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                <p className="text-muted-foreground mt-2 font-medium">{stat.label}</p>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* About Preview */}
       <section className="py-24 bg-background relative overflow-hidden">
         <FloatingShapes variant="minimal" />
@@ -249,15 +261,15 @@ const Index = () => {
                   <img
                     src={workshopImg}
                     alt="Community workshop"
-                    className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full aspect-4/3 object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-accent/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-t from-accent/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <div className="absolute -bottom-8 -right-8 w-48 h-48 hero-gradient rounded-2xl -z-10 opacity-20 animate-pulse-slow" />
                 {/* Floating badge */}
                 <div className="absolute -top-4 -right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full shadow-lg text-sm font-semibold animate-float">
-                  15+ Years
+                  5 Years
                 </div>
               </div>
             </AnimatedSection>
@@ -318,7 +330,7 @@ const Index = () => {
                         alt={service.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-accent/80 to-transparent" />
                       <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl hero-gradient flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <service.icon className="w-6 h-6 text-primary-foreground" />
                       </div>
@@ -344,8 +356,66 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Blog & Events Section */}
+      {/* Drug Awareness Campaign Gallery */}
       <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-secondary font-semibold tracking-wide uppercase text-sm">
+              #SayNoToDrugAbuse
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">
+              Our Awareness Campaigns
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Empowering communities through powerful messaging — click any image to view in
+              fullscreen
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {campaignImages.map((item, index) => (
+              <AnimatedSection key={index} delay={index * 100} animation="scale">
+                <div
+                  className="group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 cursor-pointer"
+                  onClick={() => openLightbox(index)}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-accent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <p className="text-primary-foreground font-bold text-lg">{item.title}</p>
+                    <p className="text-primary-foreground/70 text-sm mt-1">
+                      Click to view fullscreen
+                    </p>
+                  </div>
+                  {/* Zoom icon on hover */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog & Events Section */}
+      <section className="py-24 bg-muted/30 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Blog Posts */}
@@ -371,7 +441,7 @@ const Index = () => {
                 {blogPosts.map((post, index) => (
                   <AnimatedSection key={index} delay={index * 100}>
                     <article className="group bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 flex gap-6 card-hover">
-                      <div className="hidden sm:flex w-16 h-16 rounded-xl bg-primary/10 items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <div className="hidden sm:flex w-16 h-16 rounded-xl bg-primary/10 items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                         <BookOpen className="w-7 h-7 text-primary" />
                       </div>
                       <div className="flex-1">
@@ -408,30 +478,30 @@ const Index = () => {
                   <AnimatedSection key={index} delay={index * 100 + 200}>
                     <div className="bg-card rounded-xl p-5 shadow-soft border-l-4 border-secondary hover:shadow-elevated transition-all duration-300 group card-hover">
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-xl coral-gradient flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl coral-gradient flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                           <Calendar className="w-6 h-6 text-secondary-foreground" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                          <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
                             {event.title}
-                          </h4>
-                          <p className="text-sm text-primary font-medium">{event.date}</p>
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-1">{event.date}</p>
                           <p className="text-sm text-muted-foreground">{event.location}</p>
                         </div>
                       </div>
                     </div>
                   </AnimatedSection>
                 ))}
-              </div>
 
-              <AnimatedSection delay={400}>
-                <Link to="/events" className="mt-6 block">
-                  <Button variant="outline" className="w-full gap-2 group">
-                    View All Events{' '}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </AnimatedSection>
+                <AnimatedSection delay={400}>
+                  <Link to="/events">
+                    <Button variant="outline" className="w-full mt-4 gap-2 group">
+                      View All Events{' '}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </AnimatedSection>
+              </div>
             </div>
           </div>
         </div>
@@ -440,42 +510,44 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-24 hero-gradient relative overflow-hidden">
         <FloatingShapes variant="hero" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimatedSection>
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimatedSection className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-6">
-              Join Us in Making a Difference
+              Ready to Make a{' '}
+              <GradientText className="from-secondary via-primary-foreground to-secondary">
+                Difference
+              </GradientText>
+              ?
             </h2>
-            <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10">
-              Your support helps us reach more communities, conduct more workshops, and save more
-              lives. Together, we can build a safer world.
+            <p className="text-xl text-primary-foreground/80 mb-8">
+              Join our mission to create safer, healthier communities. Whether you want to
+              volunteer, donate, or partner with us, we'd love to hear from you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/donate">
-                <Button
-                  size="lg"
-                  className="coral-gradient text-secondary-foreground gap-2 hover:opacity-90 shadow-lg btn-glow group"
-                >
-                  <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Donate Now
-                </Button>
-              </Link>
               <Link to="/contact">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 backdrop-blur-sm"
+                  className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 gap-2 backdrop-blur-sm"
                 >
-                  Get Involved
+                  Get In Touch
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Image Lightbox */}
+      <ImageLightbox
+        images={campaignImages}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </Layout>
   );
 };
 
-export default Index;
+export default Home;

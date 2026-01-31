@@ -258,7 +258,7 @@ const Donate = () => {
               { value: '$2.5M+', label: 'Raised in 2025' },
               { value: '50,000+', label: 'Lives Impacted' },
               { value: '200+', label: 'Programs Funded' },
-              { value: '15+', label: 'Years of Service' },
+              { value: '5+', label: 'Years of Service' },
             ].map((stat, index) => (
               <AnimatedSection key={index} delay={index * 100}>
                 <div className="group">

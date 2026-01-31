@@ -9,7 +9,17 @@ export interface BlogPost {
   category: string;
   readTime: string;
   featured: boolean;
+  image?: string;
 }
+
+// Import blog images
+import pauseBeforePost from '~/assets/blog-pause-before-post.png';
+import cyberAwarenessMonth from '~/assets/blog-cyber-awareness-month.png';
+import verifyShare from '~/assets/blog-verify-share.png';
+import cyberAwareness from '~/assets/blog-cyber-awareness.png';
+import passwordSafety from '~/assets/blog-password-safety.png';
+import phishing from '~/assets/blog-phishing.png';
+import cyberbullying from '~/assets/blog-cyberbullying.png';
 
 export const blogPosts: BlogPost[] = [
   {
@@ -64,6 +74,7 @@ Contact us today to learn more about our upcoming parent education sessions.
     category: 'Cybersecurity',
     readTime: '5 min read',
     featured: true,
+    image: cyberAwareness,
   },
   {
     id: 2,
@@ -123,200 +134,284 @@ Together, we can create communities where people feel safe seeking help and supp
     category: 'Drug Awareness',
     readTime: '7 min read',
     featured: true,
+    image: cyberbullying,
   },
   {
     id: 3,
-    slug: 'community-workshop-lagos',
-    title: 'Community Workshop Success in Lagos',
+    slug: 'pause-before-you-post',
+    title: 'Pause Before You Post: Protecting Your Digital Privacy',
     excerpt:
-      'Over 500 participants joined our latest cybersecurity awareness program in Lagos. See the impact we made together.',
+      'What you post online stays online forever. Learn how to think before you share personal info or photos to guard your privacy.',
     content: `
-## A Day of Learning and Connection
+## What You Post Online Stays Online — Forever
 
-Last week, we hosted one of our most successful community workshops yet in Lagos. Over 500 participants gathered to learn about cybersecurity and digital safety.
+In the age of social media, it's easy to share moments from our lives without thinking about the long-term consequences. But what you post online can have lasting effects on your privacy, reputation, and security.
 
-### Event Highlights
+### Key Privacy Tips
 
-**Morning Sessions**
-The day began with keynote presentations from industry experts, covering topics from basic password security to advanced threat recognition.
+**Think Before You Share Personal Info or Photos**
+Every piece of personal information you share online can be collected, stored, and potentially misused. Before posting, ask yourself: "Would I be comfortable if this was seen by everyone?"
 
-**Interactive Workshops**
-Participants engaged in hands-on activities, including:
-- Phishing identification exercises
-- Password creation best practices
-- Social media privacy audits
-- Safe online shopping demonstrations
+**Review Privacy Settings Regularly**
+Social media platforms frequently update their privacy policies and settings. Make it a habit to review and adjust your privacy settings at least once a month.
 
-**Panel Discussions**
-Our afternoon panels featured conversations with cybersecurity professionals, law enforcement, and community leaders about the evolving threat landscape.
+**Not Everyone Deserves Access to Your Life**
+Be selective about who you connect with online. Not every friend request needs to be accepted, and not every follower needs access to your personal moments.
 
-### Participant Feedback
+### The Permanence of Digital Content
 
-> "I had no idea how vulnerable my family was online. This workshop gave me practical tools to protect us." - Participant
+Once something is posted online, it can be:
+- Screenshotted and shared without your knowledge
+- Cached by search engines
+- Accessed by future employers, schools, or relationships
+- Used against you in unexpected ways
 
-> "The hands-on approach made complex topics accessible. I left feeling empowered." - Attendee
+### Your Privacy is Power — Guard It
 
-### Key Takeaways
+At Demworks, we teach practical digital privacy skills through our #CyberSmartWithDemworks campaign. Our workshops help young people and adults understand the value of their personal information and how to protect it.
 
-1. **Awareness is the first defense** - Understanding threats helps prevent attacks
-2. **Simple actions matter** - Basic security practices significantly reduce risk
-3. **Community support strengthens resilience** - We're stronger when we learn together
+Remember: Your privacy is power. Guard it carefully.
+    `,
+    date: 'Jan 18, 2026',
+    author: 'Emmanuel Adeyemi',
+    category: 'Cybersecurity',
+    readTime: '4 min read',
+    featured: true,
+    image: pauseBeforePost,
+  },
+  {
+    id: 4,
+    slug: 'cybersecurity-awareness-month',
+    title: 'Cybersecurity Awareness Month: Think Before You Click',
+    excerpt:
+      'Join us this October as we explore practical ways to stay cyber smart, secure, and aware.',
+    content: `
+## October is Cybersecurity Awareness Month
 
-### Looking Ahead
+Join us as we share smart digital safety tips all month long! This October, Demworks is dedicated to helping you and your community stay cyber smart, secure, and aware.
 
-Based on this success, we're expanding our workshop series to additional cities. Stay tuned for announcements about upcoming events in your area.
+### Why Cybersecurity Awareness Matters
 
-Thank you to all who participated, our sponsors who made this possible, and our volunteers who ensured a smooth experience.
+In our increasingly digital world, cyber threats are evolving rapidly. From phishing attacks to ransomware, the dangers are real and can affect anyone. That's why education and awareness are our first lines of defense.
+
+### Our October Initiatives
+
+**Weekly Safety Tips**
+Follow our social media channels for weekly cybersecurity tips that you can implement immediately.
+
+**Community Workshops**
+Join our free community workshops covering topics from password security to recognizing scams.
+
+**School Programs**
+We're visiting schools across the region to teach students about online safety.
+
+### Think Before You Click
+
+The theme for this year is "Think Before You Click." This simple principle can prevent most cyber attacks:
+
+- Don't click on suspicious links
+- Verify the sender before responding to emails
+- Be cautious with downloads from unknown sources
+- Report suspicious activity to the appropriate authorities
+
+### Empowering Minds for a Safer Digital Future
+
+Together, we can build a community that's resilient against cyber threats. Protect your data. Protect your future.
+
+#CyberSmartWithDemworks #ThinkBeforeYouClick
     `,
     date: 'Jan 15, 2026',
     author: 'Fatima Hassan',
     category: 'Events',
     readTime: '4 min read',
     featured: false,
-  },
-  {
-    id: 4,
-    slug: 'recognizing-substance-abuse-signs',
-    title: 'Recognizing Signs of Substance Abuse in Loved Ones',
-    excerpt:
-      'Early intervention can save lives. Learn the warning signs and how to approach someone who may be struggling with addiction.',
-    content: `
-## The Importance of Early Recognition
-
-Substance abuse often develops gradually, and early recognition can be the key to successful intervention. Knowing what to look for helps you support loved ones before addiction takes deeper hold.
-
-### Physical Warning Signs
-
-- Sudden weight changes (loss or gain)
-- Bloodshot or glazed eyes
-- Frequent nosebleeds (for certain substances)
-- Changes in sleep patterns
-- Deteriorating personal hygiene
-- Unusual smells on breath or clothing
-
-### Behavioral Changes
-
-**Social Patterns**
-- Withdrawal from family and friends
-- New, unfamiliar friend groups
-- Secrecy about activities and whereabouts
-- Loss of interest in previously enjoyed activities
-
-**Responsibility**
-- Declining performance at work or school
-- Neglecting responsibilities
-- Financial problems or unexplained expenses
-- Legal issues
-
-**Emotional Signs**
-- Mood swings
-- Increased irritability or aggression
-- Unexplained paranoia
-- Depression or anxiety
-
-### How to Approach the Conversation
-
-**Choose the Right Time**
-Avoid confrontation when the person is under the influence. Find a calm, private moment.
-
-**Express Concern, Not Judgment**
-Use "I" statements: "I've noticed..." or "I'm worried about..." rather than accusatory language.
-
-**Be Specific**
-Reference concrete observations rather than generalizations about character.
-
-**Listen Actively**
-Give them space to respond. Understanding their perspective is crucial.
-
-**Offer Support**
-Have resources ready - treatment options, support groups, or professional contacts.
-
-### Professional Resources
-
-If you suspect a loved one is struggling with substance abuse, Demworks offers:
-
-- Confidential counseling services
-- Family support programs
-- Treatment referral assistance
-- Educational workshops
-
-Remember: addiction is a health condition, and recovery is possible with proper support.
-    `,
-    date: 'Jan 10, 2026',
-    author: 'David Mensah',
-    category: 'Drug Awareness',
-    readTime: '6 min read',
-    featured: false,
+    image: cyberAwarenessMonth,
   },
   {
     id: 5,
-    slug: 'phishing-attacks-getting-smarter',
-    title: 'Phishing Attacks Are Getting Smarter: Stay Protected',
+    slug: 'think-verify-share-responsibly',
+    title: 'Think. Verify. Share Responsibly.',
     excerpt:
-      "Cybercriminals are using AI to create more convincing phishing emails. Here's how to spot them and protect yourself.",
+      'Fake news spreads faster than the truth. Learn how to verify information before sharing and become a responsible digital citizen.',
     content: `
-## The Evolution of Phishing
+## Fake News Spreads Faster Than the Truth
 
-Phishing attacks have evolved dramatically in recent years. What once were obvious scams with poor grammar and suspicious links have become sophisticated, AI-enhanced deceptions that can fool even security-conscious individuals.
+In today's information age, misinformation can spread like wildfire. As responsible digital citizens, we have a duty to verify information before amplifying it.
 
-### How Modern Phishing Works
+### How to Verify Information
 
-**AI-Generated Content**
-Attackers now use artificial intelligence to:
-- Write flawless, personalized emails
-- Mimic writing styles of legitimate organizations
-- Create convincing fake websites
-- Generate deepfake audio and video
+**Check the Source**
+Look at where the information is coming from. Is it a reputable news outlet or an unknown website? Check the "About" page and look for contact information.
 
-**Social Engineering**
-Modern phishing combines technical sophistication with psychological manipulation:
-- Urgency and fear tactics
-- Impersonation of trusted entities
-- Exploitation of current events
-- Targeted attacks based on personal research
+**Check Credible Sources**
+Cross-reference information with established, credible sources. If a story seems too sensational, it probably needs verification.
+
+**Don't Forward Messages You Can't Confirm**
+Before hitting that share or forward button, ask yourself: "Have I verified this information?" If not, don't share it.
+
+### Why This Matters
+
+Misinformation can:
+- Damage reputations unfairly
+- Cause public panic
+- Influence elections and public opinion
+- Lead to real-world harm
+
+### Smart Youth Verify Before They Amplify
+
+At Demworks, we're teaching young people to be critical consumers of information. Our media literacy programs help students:
+
+- Identify fake news and misinformation
+- Understand the importance of source verification
+- Become responsible sharers of information
+- Contribute positively to online discourse
+
+Join our #ThinkBeforeYouClick campaign and help us build a more informed society.
+    `,
+    date: 'Jan 12, 2026',
+    author: 'Emmanuel Adeyemi',
+    category: 'Cybersecurity',
+    readTime: '5 min read',
+    featured: false,
+    image: verifyShare,
+  },
+  {
+    id: 6,
+    slug: 'password-safety-guide',
+    title: 'Your Password is Your Key — Keep It Safe!',
+    excerpt:
+      'A strong password is your first defense against hackers. Learn how to create and manage secure passwords.',
+    content: `
+## A Strong Password is Your First Defense Against Hackers
+
+Your password is the key to your digital life. Weak passwords are like leaving your front door unlocked — an open invitation for intruders.
+
+### Password Best Practices
+
+**Use at Least 8 Characters**
+The longer your password, the harder it is to crack. Aim for at least 8 characters, but 12 or more is even better.
+
+**Mix Letters, Numbers, and Symbols**
+Combine uppercase and lowercase letters, numbers, and special characters (~, #, $, %, etc.) to create a stronger password.
+
+**Never Share It With Anyone**
+Your password is personal. Never share it with friends, family, or anyone claiming to be from tech support.
+
+**Turn on Two-Factor Authentication (2FA)**
+Add an extra layer of security by enabling 2FA wherever possible. This requires a second form of verification beyond just your password.
+
+### Common Password Mistakes to Avoid
+
+- Using personal information (birthdays, names, etc.)
+- Using the same password for multiple accounts
+- Writing passwords on sticky notes near your computer
+- Using dictionary words or common phrases
+
+### Protect Your Digital Door
+
+At Demworks, we teach practical password security in all our cybersecurity workshops. Remember: Protect your digital door before someone walks in.
+
+#CyberSmartWithDemworks #PasswordSecurity
+    `,
+    date: 'Jan 8, 2026',
+    author: 'David Mensah',
+    category: 'Cybersecurity',
+    readTime: '4 min read',
+    featured: false,
+    image: passwordSafety,
+  },
+  {
+    id: 7,
+    slug: 'dont-take-the-bait',
+    title: "Don't Take the Bait! Recognizing Phishing Scams",
+    excerpt:
+      'Scammers use fake links, pages, and messages to steal your data. Learn how to recognize and avoid phishing attempts.',
+    content: `
+## Scammers Use Fake Links, Pages, and Messages to Steal Your Data
+
+Phishing is one of the most common cyber attacks, and it's getting more sophisticated every day. Criminals create convincing fake websites, emails, and messages to trick you into revealing sensitive information.
+
+### How to Spot Phishing Attempts
+
+**Don't Click Unknown Links**
+If you receive a link from an unknown sender, or even from a known sender but it seems unusual, don't click it. Hover over links to see the actual URL before clicking.
+
+**Verify the Sender Before Replying**
+Scammers often impersonate legitimate organizations or people you know. Always verify the sender through a separate channel before responding to suspicious requests.
+
+**No Bank Will Ask for Your PIN Online**
+Legitimate financial institutions will never ask for your PIN, password, or complete account details via email or text message.
 
 ### Red Flags to Watch For
 
-1. **Unexpected requests** - Any unsolicited request for personal information
-2. **Pressure tactics** - Messages creating artificial urgency
-3. **Suspicious links** - URLs that don't match the claimed sender
-4. **Generic greetings** - "Dear Customer" instead of your name
-5. **Too good to be true** - Unexpected prizes, refunds, or opportunities
+- Urgent or threatening language
+- Spelling and grammar mistakes
+- Generic greetings ("Dear Customer")
+- Mismatched URLs or email addresses
+- Requests for personal or financial information
 
-### Protection Strategies
+### If It Looks Too Good to Be True, It Probably Is
 
-**Technical Measures**
-- Enable multi-factor authentication on all accounts
-- Keep software and browsers updated
-- Use reputable email filtering services
-- Verify website security (HTTPS) before entering data
+Promises of lottery winnings, unexpected inheritances, or too-good-to-be-true deals are almost always scams. Trust your instincts and verify before you act.
 
-**Behavioral Practices**
-- Never click links in suspicious emails
-- Verify requests through official channels
-- Report phishing attempts to relevant authorities
-- Stay informed about current scam trends
+At Demworks, we provide training on recognizing and avoiding phishing attacks. Stay informed, stay safe.
 
-### What to Do If You're Targeted
-
-1. Don't panic or respond to the message
-2. Report the attempt to the impersonated organization
-3. If you clicked a link, change passwords immediately
-4. Monitor accounts for suspicious activity
-5. Consider credit monitoring if financial data was exposed
-
-### Stay Informed
-
-Demworks regularly updates our cybersecurity resources to address emerging threats. Subscribe to our newsletter for the latest information and protection tips.
+#CyberSmartWithDemworks #AntiPhishing
     `,
     date: 'Jan 5, 2026',
     author: 'Emmanuel Adeyemi',
     category: 'Cybersecurity',
     readTime: '5 min read',
     featured: false,
+    image: phishing,
   },
   {
-    id: 6,
+    id: 8,
+    slug: 'words-can-wound-be-kind-online',
+    title: 'Words Can Wound — Be Kind Online',
+    excerpt:
+      'Cyberbullying hurts. Learn how you can be the change and create a kinder online environment.',
+    content: `
+## Cyberbullying Hurts. You Can Be the Change.
+
+The words we type have real impact on real people. Cyberbullying can cause lasting emotional and psychological harm. But together, we can create a kinder online world.
+
+### How to Combat Cyberbullying
+
+**Don't Engage or Retaliate**
+If you're being bullied online, responding in anger can escalate the situation. Take a step back and don't engage.
+
+**Report Bullies and Support Victims**
+Use platform reporting features to flag bullying behavior. Reach out to victims to offer support and let them know they're not alone.
+
+**Use Your Voice to Uplift, Not Destroy**
+Every comment, every post, every message is an opportunity to spread positivity or negativity. Choose to uplift others.
+
+### Signs of Cyberbullying
+
+- Repeated negative messages or comments
+- Sharing embarrassing photos or information
+- Exclusion from online groups or activities
+- Creating fake profiles to harass someone
+- Spreading rumors or lies online
+
+### Empowered Minds Lift Others Up
+
+At Demworks, we believe in the power of kindness. Our anti-cyberbullying programs teach young people to be empathetic digital citizens who stand up for others.
+
+Remember: Behind every screen is a real person with real feelings. Let's use our digital presence to make the world a better place.
+
+#CyberSmartWithDemworks #BeKindOnline
+    `,
+    date: 'Jan 2, 2026',
+    author: 'Dr. Amara Okonkwo',
+    category: 'Cybersecurity',
+    readTime: '5 min read',
+    featured: false,
+    image: cyberbullying,
+  },
+  {
+    id: 9,
     slug: 'building-resilient-communities',
     title: 'Building Resilient Communities Through Education',
     excerpt:
