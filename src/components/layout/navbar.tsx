@@ -114,10 +114,9 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link to="/donate" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
               <Button className="w-full coral-gradient border-0 text-secondary-foreground gap-2 mt-2">
-                <Heart className="w-4 h-4" />
-                Donate Now
+                Contact Us
               </Button>
             </Link>
           </div>
