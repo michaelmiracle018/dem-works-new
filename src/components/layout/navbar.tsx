@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 import { useLocation } from '@tanstack/react-router';
@@ -13,7 +13,6 @@ const navLinks = [
   { name: 'Services', href: '/services' },
   { name: 'Blog', href: '/blog' },
   { name: 'Events', href: '/events' },
-  { name: 'Sponsors', href: '/sponsors' },
 ];
 
 export function Navbar() {
