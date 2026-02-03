@@ -228,7 +228,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 backdrop-blur-sm"
+                  className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 gap-2 backdrop-blur-sm"
                 >
                   <Play className="w-5 h-5" />
                   Watch Our Story
@@ -558,7 +558,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 backdrop-blur-sm"
+                  className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 gap-2 backdrop-blur-sm"
                 >
                   Get In Touch
                   <ArrowRight className="w-5 h-5" />
