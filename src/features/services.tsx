@@ -48,13 +48,13 @@ const services = [
     icon: Heart,
     title: 'Drug Abuse Prevention Programs',
     description:
-      'Evidence-based prevention programs that educate communities about the dangers of substance abuse and provide pathways to support and recovery.',
+      'To raise awareness about the dangers of drug abuse, empower young people with knowledge, provide support to those affected by addiction, and promote healthier lifestyle choices in Junior/Senior High Schools.',
     features: [
-      'Youth substance abuse prevention',
-      'Family support programs',
-      'Peer education initiatives',
-      'Recovery support services',
-      'Community awareness campaigns',
+      'Educate students on risks & health impact',
+      'Support resources for affected students',
+      'Foster open community discussions',
+      'Promote healthier coping strategies',
+      'Peer-to-peer education initiatives',
     ],
     image: drugImg,
     color: 'coral-gradient',
@@ -63,16 +63,79 @@ const services = [
     icon: GraduationCap,
     title: 'School Outreach Programs',
     description:
-      'Age-appropriate educational programs for students from primary to university level, fostering awareness from an early age.',
+      'Age-appropriate educational programs targeting Junior/Senior High School students (ages 12-15), teachers, and school staff for comprehensive community support.',
     features: [
-      'Primary school safety education',
-      'Secondary school workshops',
-      'University awareness campaigns',
+      'Interactive awareness workshops',
+      'Student counseling & support',
       'Teacher training programs',
-      'Parent engagement sessions',
+      'Community engagement activities',
+      'Distribution of awareness materials',
     ],
     image: workshopImg,
     color: 'navy-gradient',
+  },
+];
+
+const programComponents = [
+  {
+    title: 'Awareness Workshops & Seminars',
+    topics: [
+      'Dangers and long-term effects of drug abuse',
+      'Common drugs abused by youth in Ghana',
+      'Signs and symptoms of drug abuse',
+      'Peer pressure and how to resist it',
+      'Healthy coping mechanisms for stress & anxiety',
+    ],
+    activities: [
+      'Open discussions with students',
+      'Role-playing activities to resist peer pressure',
+      'Q&A with experts on drug abuse prevention',
+    ],
+  },
+  {
+    title: 'Student Support & Counseling',
+    topics: [
+      'Private counseling for struggling students',
+      'Identifying students needing rehabilitation',
+      'Emotional support sessions',
+      'Network of trusted rehab centers',
+      'Guidance on navigating support services',
+    ],
+    activities: [
+      'One-on-one counseling sessions',
+      'Referrals to rehabilitation centers',
+      'Professional help coordination',
+    ],
+  },
+  {
+    title: 'Awareness Materials & Souvenirs',
+    topics: [
+      'T-shirts & wristbands with anti-drug messages',
+      'Water bottles & notebooks with awareness content',
+      'Leaflets and posters with facts',
+      'Information packs on peer pressure',
+      'Contact info for support services',
+    ],
+    activities: [
+      'Distribution at school events',
+      'Community awareness campaigns',
+      'Take-home resource packs',
+    ],
+  },
+  {
+    title: 'Community Engagement',
+    topics: [
+      'Peer-to-peer education training',
+      'Student awareness ambassadors',
+      'Neighborhood outreach events',
+      'Community leader involvement',
+      'Health professional partnerships',
+    ],
+    activities: [
+      'Train selected students as peer educators',
+      'Host awareness events in schools',
+      'Invite motivational speakers',
+    ],
   },
 ];
 
@@ -126,6 +189,73 @@ const Services = () => {
               Comprehensive awareness and education programs designed to protect, empower, and
               support communities across the nation.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Components Section */}
+      <section className="py-24 bg-muted/30 relative overflow-hidden section-divider">
+        <FloatingShapes variant="section" />
+        <div className="container mx-auto px-4 relative">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-secondary font-semibold tracking-wide uppercase text-sm">
+              Program Details
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">
+              Our Drug Awareness Program
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-3xl mx-auto">
+              Comprehensive program components designed to educate, support, and empower
+              Junior/Senior High School students (ages 12-15), teachers, and school staff in the
+              fight against drug abuse.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {programComponents.map((component, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <GlowCard>
+                  <div className="bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-500 h-full">
+                    <div className="w-12 h-12 rounded-xl coral-gradient flex items-center justify-center mb-6">
+                      <span className="text-secondary-foreground font-bold text-xl">
+                        {index + 1}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-4">{component.title}</h3>
+
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-primary mb-3">Key Topics:</h4>
+                      <ul className="space-y-2">
+                        {component.topics.map((topic, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2 text-muted-foreground text-sm"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 shrink-0" />
+                            <span>{topic}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-primary mb-3">Activities:</h4>
+                      <ul className="space-y-2">
+                        {component.activities.map((activity, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2 text-muted-foreground text-sm"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                            <span>{activity}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </GlowCard>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
@@ -277,6 +407,31 @@ const Services = () => {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 coral-gradient relative overflow-hidden">
+        <FloatingShapes variant="hero" />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <AnimatedSection>
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-foreground mb-6">
+              Need a Customized Program?
+            </h2>
+            <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+              We work with organizations to create tailored programs that meet their specific needs.
+              Contact us to discuss how we can help your community.
+            </p>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 btn-glow group"
+              >
+                Get in Touch{' '}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 

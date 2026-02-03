@@ -1,7 +1,22 @@
 import { Layout } from '~/components/layout/layout';
-import { Users, Target, Eye, Heart, Award, Globe, Linkedin, Twitter } from 'lucide-react';
+import {
+  Users,
+  Target,
+  Eye,
+  Heart,
+  Award,
+  Globe,
+  Linkedin,
+  Twitter,
+  Lightbulb,
+  TrendingUp,
+  BookOpen,
+  Leaf,
+  ShieldCheck,
+} from 'lucide-react';
+
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
-import { FloatingShapes, GradientText } from '~/components/ui/floating-shapes';
+import { FloatingShapes, GlowCard, GradientText } from '~/components/ui/floating-shapes';
 import campaign1 from '~/assets/campaign-1.jpg';
 import demworksLogoFull from '~/assets/demworks-logo-full.png';
 import team1 from '~/assets/team/Dora-Wepia.jpeg';
@@ -94,6 +109,25 @@ const values = [
   },
 ];
 
+const strategicObjectives = [
+  'Promote community-driven development through skills training, entrepreneurship support, and local innovation.',
+  'Empower youth and women to lead change through mentorship, leadership development, and advocacy training.',
+  'Mobilize communities around issues of education, gender equity, and economic inclusion.',
+  'Launch impactful community programs starting with a nationwide drug abuse awareness and prevention campaign.',
+  'Foster strategic partnerships with government, civil society, and the private sector to amplify impact.',
+  'Enhance access to knowledge through awareness campaigns, digital platforms, and storytelling.',
+];
+
+const programAreas = [
+  { icon: Users, title: 'Youth Empowerment & Skills Development' },
+  { icon: TrendingUp, title: "Women's Leadership & Gender Inclusion" },
+  { icon: Globe, title: 'Community Mobilization & Civic Engagement' },
+  { icon: Lightbulb, title: 'Economic Empowerment & Microenterprise Support' },
+  { icon: BookOpen, title: 'Health, Education & Social Impact Campaigns' },
+  { icon: ShieldCheck, title: 'Drug Abuse Prevention & Community Safety Initiatives' },
+  { icon: Leaf, title: 'Environmental Sustainability Campaigns and Initiatives' },
+];
+
 const About = () => {
   return (
     <Layout>
@@ -101,29 +135,26 @@ const About = () => {
       <section className="pt-32 pb-20 hero-gradient relative overflow-hidden">
         <FloatingShapes variant="hero" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-primary-foreground/80 font-semibold tracking-wide uppercase text-sm mb-4 animate-fade-in">
-              About Demworks
+              About DemWorks
             </span>
             <h1 className="text-4xl lg:text-6xl font-bold text-primary-foreground mb-6 animate-fade-up">
-              Our Story &{' '}
+              Development,{' '}
               <GradientText className="from-secondary via-primary-foreground to-secondary">
-                Mission
-              </GradientText>
+                Empowerment
+              </GradientText>{' '}
+              & Mobilization Works
             </h1>
-            <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-up delay-200">
-              DemWorks (Development, Empowerment, and Mobilization Works) is a bold and dynamic
-              initiative designed to catalyze grassroots-driven change across Africa, starting with
-              Ghana. At its core, DemWorks exists to empower individuals and communities through
-              targeted development programs, inclusive empowerment strategies, and innovative
-              mobilization efforts. We believe that when people are given the tools, resources, and
-              opportunities to thrive, they become unstoppable forces for progress.
+            <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-up delay-200 max-w-3xl mx-auto">
+              A bold and dynamic initiative designed to catalyze grassroots-driven change across
+              Africa, starting with Ghana.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Executive Summary */}
       <section className="py-24 bg-background relative overflow-hidden">
         <FloatingShapes variant="minimal" />
         <div className="container mx-auto px-4 relative">
@@ -136,46 +167,180 @@ const About = () => {
                   className="rounded-2xl shadow-elevated w-full group-hover:scale-[1.02] transition-transform duration-500"
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 hero-gradient rounded-2xl -z-10 opacity-30 animate-pulse-slow" />
-                {/* Logo badge */}
                 <div className="absolute -bottom-4 -left-4 bg-white p-2 rounded-xl shadow-lg">
                   <img src={demworksLogoFull} alt="Demworks" className="h-12 w-auto" />
                 </div>
               </div>
             </AnimatedSection>
 
-            <div className="space-y-10">
-              <AnimatedSection animation="fade-left" delay={100}>
-                <div className="flex gap-6">
-                  <div className="w-14 h-14 rounded-xl hero-gradient flex items-center justify-center shrink-0 hover:scale-110 transition-transform">
-                    <Target className="w-7 h-7 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3">Our Mission</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      To drive inclusive development, empower underrepresented groups, and mobilize
-                      communities toward sustainable progress through education, collaboration, and
-                      innovation.
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
+            <AnimatedSection animation="fade-left">
+              <span className="text-primary font-semibold tracking-wide uppercase text-sm">
+                Executive Summary
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-3 mb-6">
+                Catalyzing <GradientText>Grassroots Change</GradientText>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                At its core, DemWorks exists to empower individuals and communities through targeted
+                development programs, inclusive empowerment strategies, and innovative mobilization
+                efforts.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                We believe that when people are given the tools, resources, and opportunities to
+                thrive, they become unstoppable forces for progress. Our approach integrates
+                capacity building, strategic partnerships, and people-centered programming to
+                address inequalities and inspire leadership at every level.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Through a focus on <strong className="text-foreground">young people</strong>,{' '}
+                <strong className="text-foreground">women</strong>, and{' '}
+                <strong className="text-foreground">underserved communities</strong>, DemWorks
+                serves as a launchpad for sustainable growth, social change, and civic
+                transformation.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
 
-              <AnimatedSection animation="fade-left" delay={200}>
-                <div className="flex gap-6">
-                  <div className="w-14 h-14 rounded-xl coral-gradient flex items-center justify-center shrink-0 hover:scale-110 transition-transform">
-                    <Eye className="w-7 h-7 text-secondary-foreground" />
+      {/* Mission & Vision */}
+      <section className="py-24 bg-muted/30 relative overflow-hidden section-divider">
+        <FloatingShapes variant="section" />
+        <div className="container mx-auto px-4 relative">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-primary font-semibold tracking-wide uppercase text-sm">
+              Our Purpose
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">
+              Mission & Vision
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <AnimatedSection delay={100}>
+              <GlowCard>
+                <div className="bg-card rounded-2xl p-8 shadow-soft h-full">
+                  <div className="w-16 h-16 rounded-2xl hero-gradient flex items-center justify-center mb-6">
+                    <Target className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3">Our Vision</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      A continent where every individual — regardless of background — is empowered,
-                      mobilized, and equipped to shape their future and contribute meaningfully to
-                      national development.
-                    </p>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    To drive inclusive development, empower underrepresented groups, and mobilize
+                    communities toward sustainable progress through education, collaboration, and
+                    innovation.
+                  </p>
+                </div>
+              </GlowCard>
+            </AnimatedSection>
+
+            <AnimatedSection delay={200}>
+              <GlowCard>
+                <div className="bg-card rounded-2xl p-8 shadow-soft h-full">
+                  <div className="w-16 h-16 rounded-2xl coral-gradient flex items-center justify-center mb-6">
+                    <Eye className="w-8 h-8 text-secondary-foreground" />
                   </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    A continent where every individual — regardless of background — is empowered,
+                    mobilized, and equipped to shape their future and contribute meaningfully to
+                    national development.
+                  </p>
+                </div>
+              </GlowCard>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Background & Rationale */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection className="text-center mb-12">
+              <span className="text-secondary font-semibold tracking-wide uppercase text-sm">
+                Why We Exist
+              </span>
+              <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">
+                Background & Rationale
+              </h2>
+            </AnimatedSection>
+
+            <AnimatedSection delay={100}>
+              <div className="bg-muted/50 rounded-2xl p-8 md:p-12 shadow-soft">
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Many communities across Ghana and the wider region remain underserved in terms of
+                  education, opportunity, and access to resources. DemWorks was born from the need
+                  to move beyond traditional aid models and embrace{' '}
+                  <strong className="text-foreground">empowerment-led development</strong> — where
+                  transformation is led by those who live it.
+                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  By providing platforms for leadership, equipping individuals with life-changing
+                  skills, and uniting people under common causes, DemWorks fills a critical gap in
+                  the development ecosystem. Our focus on{' '}
+                  <strong className="text-foreground">development</strong>,{' '}
+                  <strong className="text-foreground">empowerment</strong>, and{' '}
+                  <strong className="text-foreground">mobilization</strong> creates a ripple effect
+                  of change from the grassroots up.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Objectives */}
+      <section className="py-24 hero-gradient relative overflow-hidden">
+        <FloatingShapes variant="hero" />
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-primary-foreground/80 font-semibold tracking-wide uppercase text-sm">
+              Our Goals
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mt-3">
+              Strategic Objectives
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {strategicObjectives.map((objective, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300 h-full">
+                  <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center mb-4">
+                    <span className="text-secondary-foreground font-bold">{index + 1}</span>
+                  </div>
+                  <p className="text-primary-foreground/90 leading-relaxed">{objective}</p>
                 </div>
               </AnimatedSection>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Program Areas */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <FloatingShapes variant="minimal" />
+        <div className="container mx-auto px-4 relative">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-primary font-semibold tracking-wide uppercase text-sm">
+              What We Focus On
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">Program Areas</h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {programAreas.map((area, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <area.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-foreground font-semibold group-hover:text-primary transition-colors">
+                    {area.title}
+                  </h3>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
@@ -214,7 +379,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <span className="text-primary font-semibold tracking-wide uppercase text-sm">
-              The People Behind Demworks
+              The People Behind DemWorks
             </span>
             <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">
               Our Leadership Team
@@ -268,7 +433,7 @@ const About = () => {
               Our Journey
             </span>
             <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mt-3">
-              5 Years of Impact
+              15 Years of Impact
             </h2>
           </AnimatedSection>
 
@@ -277,7 +442,7 @@ const About = () => {
               {
                 year: '2011',
                 title: 'Foundation',
-                desc: 'Demworks was founded with a mission to combat drug abuse in local communities.',
+                desc: 'DemWorks was founded with a mission to combat drug abuse in local communities.',
               },
               {
                 year: '2015',

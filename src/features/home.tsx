@@ -100,6 +100,13 @@ function AnimatedCounter({
   );
 }
 
+const stats = [
+  { value: 50000, suffix: '+', label: 'Lives Impacted', icon: Users },
+  { value: 200, suffix: '+', label: 'Workshops Conducted', icon: BookOpen },
+  { value: 15, suffix: '', label: 'Years of Service', icon: Calendar },
+  { value: 45, suffix: '+', label: 'Partner Organizations', icon: Globe },
+];
+
 const services = [
   {
     icon: Shield,
@@ -158,7 +165,7 @@ const upcomingEvents = [
   },
 ];
 
-const Home = () => {
+const Index = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -202,8 +209,9 @@ const Home = () => {
             </h1>
 
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed max-w-2xl animate-fade-up delay-300">
-              Demworks is dedicated to protecting communities from drug abuse and cyber threats
-              through comprehensive awareness programs, education, and support services.
+              A bold initiative designed to catalyze grassroots-driven change across Africa. We
+              empower individuals and communities through targeted development programs, inclusive
+              empowerment strategies, and innovative mobilization efforts.
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-up delay-400">
@@ -220,10 +228,10 @@ const Home = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 gap-2 backdrop-blur-sm"
+                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 backdrop-blur-sm"
                 >
                   <Play className="w-5 h-5" />
-                  Read Our Story
+                  Watch Our Story
                 </Button>
               </Link>
             </div>
@@ -250,6 +258,24 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-20 bg-card relative overflow-hidden">
+        <FloatingShapes variant="section" />
+        <div className="container mx-auto px-4 relative">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <AnimatedSection key={index} delay={index * 100} className="text-center group">
+                <div className="w-16 h-16 rounded-2xl hero-gradient mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                <p className="text-muted-foreground mt-2 font-medium">{stat.label}</p>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Preview */}
       <section className="py-24 bg-background relative overflow-hidden">
         <FloatingShapes variant="minimal" />
@@ -269,7 +295,7 @@ const Home = () => {
                 <div className="absolute -bottom-8 -right-8 w-48 h-48 hero-gradient rounded-2xl -z-10 opacity-20 animate-pulse-slow" />
                 {/* Floating badge */}
                 <div className="absolute -top-4 -right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full shadow-lg text-sm font-semibold animate-float">
-                  5 Years
+                  15+ Years
                 </div>
               </div>
             </AnimatedSection>
@@ -279,17 +305,21 @@ const Home = () => {
                 About Demworks
               </span>
               <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3 mb-6">
-                Building a <GradientText>Safer Future</GradientText> Together
+                <GradientText>Empowerment-Led</GradientText> Development
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                For over 15 years, Demworks has been at the forefront of community education,
-                helping individuals and organizations understand and combat the threats of drug
-                abuse and cybersecurity vulnerabilities.
+              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+                <strong className="text-foreground">Mission:</strong> To drive inclusive
+                development, empower underrepresented groups, and mobilize communities toward
+                sustainable progress through education, collaboration, and innovation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                <strong className="text-foreground">Vision:</strong> A continent where every
+                individual — regardless of background — is empowered, mobilized, and equipped to
+                shape their future and contribute meaningfully to national development.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Our mission is simple: empower every person with the knowledge and resources they
-                need to protect themselves and their loved ones in both the physical and digital
-                world.
+                Through a focus on young people, women, and underserved communities, DemWorks serves
+                as a launchpad for sustainable growth, social change, and civic transformation.
               </p>
               <Link to="/about">
                 <Button className="hero-gradient text-primary-foreground gap-2 btn-glow group">
@@ -528,7 +558,7 @@ const Home = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 gap-2 backdrop-blur-sm"
+                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 backdrop-blur-sm"
                 >
                   Get In Touch
                   <ArrowRight className="w-5 h-5" />
@@ -550,4 +580,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Index;
