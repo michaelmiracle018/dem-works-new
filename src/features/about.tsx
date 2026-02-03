@@ -436,43 +436,6 @@ const About = () => {
               15 Years of Impact
             </h2>
           </AnimatedSection>
-
-          <div className="max-w-3xl mx-auto space-y-8">
-            {[
-              {
-                year: '2011',
-                title: 'Foundation',
-                desc: 'DemWorks was founded with a mission to combat drug abuse in local communities.',
-              },
-              {
-                year: '2015',
-                title: 'Expansion',
-                desc: 'Extended our programs to include cybersecurity awareness as digital threats grew.',
-              },
-              {
-                year: '2019',
-                title: 'National Reach',
-                desc: 'Expanded operations to 20+ cities and partnered with government agencies.',
-              },
-              {
-                year: '2024',
-                title: 'Digital Transformation',
-                desc: 'Launched online learning platforms reaching thousands more individuals.',
-              },
-            ].map((item, index) => (
-              <AnimatedSection key={index} delay={index * 150} animation="fade-left">
-                <div className="flex gap-6 items-start group">
-                  <div className="text-4xl font-serif font-bold text-primary group-hover:scale-110 transition-transform">
-                    {item.year}
-                  </div>
-                  <div className="flex-1 bg-white/5 rounded-xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-                    <h4 className="text-xl font-bold text-primary-foreground mb-2">{item.title}</h4>
-                    <p className="text-primary-foreground/70">{item.desc}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
     </Layout>

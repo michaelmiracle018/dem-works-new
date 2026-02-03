@@ -100,13 +100,6 @@ function AnimatedCounter({
   );
 }
 
-const stats = [
-  { value: 50000, suffix: '+', label: 'Lives Impacted', icon: Users },
-  { value: 200, suffix: '+', label: 'Workshops Conducted', icon: BookOpen },
-  { value: 15, suffix: '', label: 'Years of Service', icon: Calendar },
-  { value: 45, suffix: '+', label: 'Partner Organizations', icon: Globe },
-];
-
 const services = [
   {
     icon: Shield,
@@ -258,24 +251,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-card relative overflow-hidden">
-        <FloatingShapes variant="section" />
-        <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <AnimatedSection key={index} delay={index * 100} className="text-center group">
-                <div className="w-16 h-16 rounded-2xl hero-gradient mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                <p className="text-muted-foreground mt-2 font-medium">{stat.label}</p>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* About Preview */}
       <section className="py-24 bg-background relative overflow-hidden">
         <FloatingShapes variant="minimal" />
@@ -295,7 +270,7 @@ const Index = () => {
                 <div className="absolute -bottom-8 -right-8 w-48 h-48 hero-gradient rounded-2xl -z-10 opacity-20 animate-pulse-slow" />
                 {/* Floating badge */}
                 <div className="absolute -top-4 -right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full shadow-lg text-sm font-semibold animate-float">
-                  15+ Years
+                  5+ Years
                 </div>
               </div>
             </AnimatedSection>
