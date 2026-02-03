@@ -1,19 +1,5 @@
 import { Layout } from '~/components/layout/layout';
-import {
-  Users,
-  Target,
-  Eye,
-  Heart,
-  Award,
-  Globe,
-  Linkedin,
-  Twitter,
-  Lightbulb,
-  TrendingUp,
-  BookOpen,
-  Leaf,
-  ShieldCheck,
-} from 'lucide-react';
+import { Users, Target, Eye, Heart, Award, Globe, Linkedin, Twitter } from 'lucide-react';
 
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
 import { FloatingShapes, GlowCard, GradientText } from '~/components/ui/floating-shapes';
@@ -31,15 +17,15 @@ const team = [
   {
     name: 'Dora Wepia',
     role: 'Founder & Executive Director ',
-    bio: '20+ years in public health and community development.',
+    // bio: '20+ years in public health and community development.',
     image: team1,
     linkedin: '#',
     twitter: '#',
   },
   {
-    name: 'Desmond',
+    name: 'Desmond Basigiyem',
     role: 'Social Media Manager',
-    bio: 'Expert in cybersecurity education and youth programs.',
+    // bio: 'Expert in cybersecurity education and youth programs.',
     image: team2,
     linkedin: '#',
     twitter: '#',
@@ -47,7 +33,7 @@ const team = [
   {
     name: 'Patience Mercy Achambeh',
     role: 'Communications, Fundraising & Secretary',
-    bio: 'Passionate about connecting with communities and building partnerships.',
+    // bio: 'Passionate about connecting with communities and building partnerships.',
     image: team3,
     linkedin: '#',
     twitter: '#',
@@ -55,7 +41,7 @@ const team = [
   {
     name: 'Dorithy Morisum Salifu',
     role: 'Administrative & Operations Lead',
-    bio: 'PhD in Social Sciences with focus on addiction studies.',
+    // bio: 'PhD in Social Sciences with focus on addiction studies.',
     image: team4,
     linkedin: '#',
     twitter: '#',
@@ -63,15 +49,15 @@ const team = [
   {
     name: 'Wekuri Solonic',
     role: 'Community Mobilization & Events Lead ',
-    bio: 'PhD in Social Sciences with focus on addiction studies.',
+    // bio: 'PhD in Social Sciences with focus on addiction studies.',
     image: team5,
     linkedin: '#',
     twitter: '#',
   },
   {
-    name: 'Seth',
+    name: 'Seth Mensah Konadu',
     role: 'Video Editor & Content Producer',
-    bio: 'PhD in Social Sciences with focus on addiction studies.',
+    // bio: 'PhD in Social Sciences with focus on addiction studies.',
     image: team6,
     linkedin: '#',
     twitter: '#',
@@ -79,7 +65,7 @@ const team = [
   {
     name: 'Mardiyah Bint Umar',
     role: 'Youth Engagement & Field Programs Coordinator',
-    bio: 'PhD in Social Sciences with focus on addiction studies.',
+    // bio: 'PhD in Social Sciences with focus on addiction studies.',
     image: team7,
     linkedin: '#',
     twitter: '#',
@@ -116,16 +102,6 @@ const strategicObjectives = [
   'Launch impactful community programs starting with a nationwide drug abuse awareness and prevention campaign.',
   'Foster strategic partnerships with government, civil society, and the private sector to amplify impact.',
   'Enhance access to knowledge through awareness campaigns, digital platforms, and storytelling.',
-];
-
-const programAreas = [
-  { icon: Users, title: 'Youth Empowerment & Skills Development' },
-  { icon: TrendingUp, title: "Women's Leadership & Gender Inclusion" },
-  { icon: Globe, title: 'Community Mobilization & Civic Engagement' },
-  { icon: Lightbulb, title: 'Economic Empowerment & Microenterprise Support' },
-  { icon: BookOpen, title: 'Health, Education & Social Impact Campaigns' },
-  { icon: ShieldCheck, title: 'Drug Abuse Prevention & Community Safety Initiatives' },
-  { icon: Leaf, title: 'Environmental Sustainability Campaigns and Initiatives' },
 ];
 
 const About = () => {
@@ -317,34 +293,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Program Areas */}
-      <section className="py-24 bg-background relative overflow-hidden">
-        <FloatingShapes variant="minimal" />
-        <div className="container mx-auto px-4 relative">
-          <AnimatedSection className="text-center mb-16">
-            <span className="text-primary font-semibold tracking-wide uppercase text-sm">
-              What We Focus On
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">Program Areas</h2>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {programAreas.map((area, index) => (
-              <AnimatedSection key={index} delay={index * 100}>
-                <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <area.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-foreground font-semibold group-hover:text-primary transition-colors">
-                    {area.title}
-                  </h3>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-24 bg-muted/30 relative overflow-hidden section-divider">
         <FloatingShapes variant="section" />
@@ -402,7 +350,7 @@ const About = () => {
                     {member.name}
                   </h3>
                   <p className="text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{member.bio}</p>
+                  {/* <p className="text-muted-foreground text-sm mb-4">{member.bio}</p> */}
                   <div className="flex justify-center gap-3">
                     <a
                       href={member.linkedin}
@@ -421,21 +369,6 @@ const About = () => {
               </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* History Timeline */}
-      <section className="py-24 navy-gradient relative overflow-hidden">
-        <FloatingShapes variant="hero" />
-        <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="text-primary font-semibold tracking-wide uppercase text-sm">
-              Our Journey
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mt-3">
-              15 Years of Impact
-            </h2>
-          </AnimatedSection>
         </div>
       </section>
     </Layout>

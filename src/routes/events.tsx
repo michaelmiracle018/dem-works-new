@@ -8,7 +8,7 @@ export const Route = createFileRoute('/events')({
       title: 'Events',
       description: 'This is the events page of my awesome app',
       keywords:
-        'react, tanstack, vite, ssr, design website, mobile apps, web development, backend services, cloud solutions',
+        'NGO, community initiatives, campaigns, events, youth empowerment, education, social impact, gallery',
       image: 'https://myapp.com/og/events.png',
     }),
   }),

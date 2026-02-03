@@ -6,9 +6,9 @@ export const Route = createFileRoute('/services')({
   head: () => ({
     meta: seo({
       title: 'Services – My App',
-      description: 'This is the services page of my awesome app',
+      description: 'Discover DemWorks Services.',
       keywords:
-        'react, tanstack, vite, ssr, design website, mobile apps, web development, backend services, cloud solutions',
+        'NGO, community initiatives, campaigns, events, youth empowerment, education, social impact',
       image: 'https://myapp.com/og/services.png',
     }),
   }),

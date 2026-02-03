@@ -1,6 +1,20 @@
 import { useState } from 'react';
 import { Layout } from '~/components/layout/layout';
-import { Shield, Heart, Users, GraduationCap, Building, Megaphone, ArrowRight } from 'lucide-react';
+import {
+  Shield,
+  Heart,
+  Users,
+  GraduationCap,
+  Building,
+  Megaphone,
+  ArrowRight,
+  TrendingUp,
+  Globe,
+  Lightbulb,
+  BookOpen,
+  ShieldCheck,
+  Leaf,
+} from 'lucide-react';
 import { Button } from '~/components/ui/button';
 
 import { AnimatedSection } from '~/hooks/use-scroll-animation';
@@ -157,6 +171,15 @@ const additionalServices = [
     description:
       'Large-scale public awareness initiatives using media, events, and community engagement.',
   },
+];
+const programAreas = [
+  { icon: Users, title: 'Youth Empowerment & Skills Development' },
+  { icon: TrendingUp, title: "Women's Leadership & Gender Inclusion" },
+  { icon: Globe, title: 'Community Mobilization & Civic Engagement' },
+  { icon: Lightbulb, title: 'Economic Empowerment & Microenterprise Support' },
+  { icon: BookOpen, title: 'Health, Education & Social Impact Campaigns' },
+  { icon: ShieldCheck, title: 'Drug Abuse Prevention & Community Safety Initiatives' },
+  { icon: Leaf, title: 'Environmental Sustainability Campaigns and Initiatives' },
 ];
 
 const Services = () => {
@@ -322,6 +345,33 @@ const Services = () => {
           </div>
         </div>
       </section>
+      {/* Program Areas */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <FloatingShapes variant="minimal" />
+        <div className="container mx-auto px-4 relative">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-primary font-semibold tracking-wide uppercase text-sm">
+              What We Focus On
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mt-3">Program Areas</h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {programAreas.map((area, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <area.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-foreground font-semibold group-hover:text-primary transition-colors">
+                    {area.title}
+                  </h3>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Additional Services */}
       <section className="py-24 bg-muted/30 relative overflow-hidden section-divider">
@@ -407,31 +457,6 @@ const Services = () => {
               </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 coral-gradient relative overflow-hidden">
-        <FloatingShapes variant="hero" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimatedSection>
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-foreground mb-6">
-              Need a Customized Program?
-            </h2>
-            <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-              We work with organizations to create tailored programs that meet their specific needs.
-              Contact us to discuss how we can help your community.
-            </p>
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 btn-glow group"
-              >
-                Get in Touch{' '}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
 
