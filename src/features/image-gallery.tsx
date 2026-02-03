@@ -235,7 +235,7 @@ function GalleryCard({
   );
 }
 
-export default function Gallery() {
+export default function ImageGallery() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);

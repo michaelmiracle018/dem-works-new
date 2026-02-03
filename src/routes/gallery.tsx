@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import Gallery from '~/features/Gallery';
+import ImageGallery from '~/features/image-gallery';
 
 import { seo } from '~/utils/seo';
 
@@ -13,5 +13,5 @@ export const Route = createFileRoute('/gallery')({
       image: 'https://myapp.com/og/gallery.png',
     }),
   }),
-  component: Gallery,
+  component: ImageGallery,
 });
